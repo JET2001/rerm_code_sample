@@ -88,7 +88,7 @@ def solve_robust_prob(
 
     obj = cp.Minimize(cp.sum_squares(p) / n)
     prob = cp.Problem(obj, constraints)
-    prob.solve(solver=cp.MOSEK, verbose=False)
+    prob.solve(solver = cp.ECOS, verbose=True)
     return x.value, intercept.value[0]
 
 def distinguish_indices(a: np.ndarray)-> Tuple[np.ndarray, np.ndarray]:
